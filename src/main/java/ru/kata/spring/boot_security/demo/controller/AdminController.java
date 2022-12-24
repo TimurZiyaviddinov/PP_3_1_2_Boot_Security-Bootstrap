@@ -46,11 +46,11 @@ public class AdminController {
         return "redirect:/admin/";
     }
 
-    @GetMapping(value = "/{id}/delete-user")
-    public String deleteUserQuestion(ModelMap model, @PathVariable("id") Long id) {
-        model.addAttribute("user", userService.getUserById(id));
-        return "redirect:/admin/";
-    }
+//    @GetMapping(value = "/{id}/delete-user")
+//    public String deleteUserQuestion(ModelMap model, @PathVariable("id") Long id) {
+//        model.addAttribute("user", userService.getUserById(id));
+//        return "redirect:/admin/";
+//    }
 
     @DeleteMapping(value = "/{id}")
     public String deleteUser(@ModelAttribute("user") User user) {
@@ -58,15 +58,15 @@ public class AdminController {
         return "redirect:/admin/";
     }
 
-    @GetMapping(value = "/{id}/edit")
-    public String editUser(ModelMap model, @PathVariable("id") Long id) {
-        model.addAttribute("user", userService.getUserById(id));
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "edit";
-    }
+//    @GetMapping(value = "/{id}/edit")
+//    public String editUser(ModelMap model, @PathVariable("id") Long id) {
+//        model.addAttribute("user", userService.getUserById(id));
+//        model.addAttribute("roles", roleService.getAllRoles());
+//        return "edit";
+//    }
 
     @PatchMapping(value = "/{id}")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam(required = false, value = "checkBoxRoles") String[] checkBoxRoles) {
+    public String updateUser(@ModelAttribute("user") User user, @RequestParam(required = false, value = "checkBoxRolesEdit") String[] checkBoxRoles) {
         user.setRoles(roleService.checkRoles(checkBoxRoles));
         userService.updateUser(user);
         return "redirect:/admin/";

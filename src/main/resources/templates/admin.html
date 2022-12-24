@@ -20,7 +20,7 @@
         <b th:each="role:${roles}" th:text="${role.removeRoleWord}"></b>
     </div>
     <div>
-        <a th:href="login" class="text-secondary">Logout</a>
+        <a style="color: darkgray" th:href="@{/logout}" class="secondary">Logout</a>
     </div>
 </nav>
 <!--Левая колонка-->
@@ -81,7 +81,81 @@
                                 </td>
                                 <!--Edit button-->
                                 <td>
-                                    <button type="button" class="btn btn-info" th:method="post">Edit</button>
+                                    <button type="button" class="btn btn-info" data-toggle="modal"
+                                            th:data-target="${'#edit'+user.getId()}"
+                                            data-target="#edit">Edit
+                                    </button>
+
+                                    <div class="modal fade" th:id="${'edit'+user.getId()}" data-backdrop="static"
+                                         data-keyboard="false" tabindex="-1" aria-labelledby="editModal"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModal">Edit user</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <form th:method="PATCH"
+                                                          th:action="@{/admin/{id}(id=${user.id})}"
+                                                          th:object="${user}">
+                                                        <div class="col-md bg-white border text-center">
+                                                            <div class="form-group col-md-5">
+                                                                <fieldset disabled>
+                                                                    <label for="IDEdit"><b>ID</b></label>
+                                                                    <input th:name="id" th:type="numbers"
+                                                                           class="form-control" id="IDEdit"
+                                                                           th:value="${user.id}">
+                                                                </fieldset>
+
+                                                                <br>
+
+                                                                <label for="nameEdit"><b>Name</b></label>
+                                                                <input th:name="name" th:type="text"
+                                                                       class="form-control" id="nameEdit"
+                                                                       th:value="${user.name}">
+
+
+                                                                <br>
+
+                                                                <label for="ageEdit"><b>Age</b></label>
+                                                                <input th:name="age" th:type="numbers"
+                                                                       class="form-control" id="ageEdit"
+                                                                       th:value="${user.age}">
+
+                                                                <br>
+                                                                <label for="cityEdit"><b>City</b></label>
+                                                                <input th:name="city" th:type="text"
+                                                                       class="form-control" id="cityEdit"
+                                                                       th:value="${user.city}">
+
+                                                                <br>
+                                                                <label for="chechBoxRolesEdit"><b>Role</b></label>
+                                                                <select multiple class="form-control"
+                                                                        id="chechBoxRolesEdit">
+                                                                    <option>User</option>
+                                                                    <option>Admin</option>
+                                                                </select>
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">Edit
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
 
 
@@ -94,12 +168,12 @@
                                     </button>
 
                                     <div class="modal fade" th:id="${'delete'+user.getId()}" data-backdrop="static"
-                                         data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                         data-keyboard="false" tabindex="-1" aria-labelledby="deleteModal"
                                          aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Delete user</h5>
+                                                    <h5 class="modal-title" id="deleteModal">Delete user</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -134,18 +208,18 @@
                                                                            class="form-control" id="ageDel"
                                                                            th:value="${user.age}">
                                                                 </fieldset>
-
+                                                                <br>
                                                                 <fieldset disabled>
-                                                                    <label for="nameDel"><b>City</b></label>
+                                                                    <label for="cityDel"><b>City</b></label>
                                                                     <input th:name="city" th:type="text"
                                                                            class="form-control" id="cityDel"
                                                                            th:value="${user.city}">
                                                                 </fieldset>
-
+                                                                <br>
                                                                 <fieldset disabled>
-                                                                    <label for="chechBoxRolesDel"><b>Role</b></label>
+                                                                    <label for="checkBoxRolesDel"><b>Role</b></label>
                                                                     <select multiple class="form-control"
-                                                                            id="chechBoxRolesDel">
+                                                                            id="checkBoxRolesDel">
                                                                         <option>
                                                                             <p2 th:each="role:${user.getRoles()}"
                                                                                 th:text="${role.removeRoleWord}"></p2>
@@ -202,8 +276,8 @@
                                        placeholder="City">
                             </div>
                             <div class="form-group col-md-5">
-                                <label for="chechBoxRoles"><b>Role</b></label>
-                                <select multiple class="form-control" id="chechBoxRoles">
+                                <label for="checkBoxRoles"><b>Role</b></label>
+                                <select multiple class="form-control" id="checkBoxRoles">
                                     <option>User</option>
                                     <option>Admin</option>
                                 </select>
