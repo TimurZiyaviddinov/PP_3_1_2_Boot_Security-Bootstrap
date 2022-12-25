@@ -9,6 +9,8 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
+import java.util.Arrays;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -67,6 +69,7 @@ public class AdminController {
 
     @PatchMapping(value = "/{id}")
     public String updateUser(@ModelAttribute("user") User user, @RequestParam(required = false, value = "checkBoxRolesEdit") String[] checkBoxRoles) {
+        System.out.println(Arrays.toString(checkBoxRoles));
         user.setRoles(roleService.checkRoles(checkBoxRoles));
         userService.updateUser(user);
         return "redirect:/admin/";
