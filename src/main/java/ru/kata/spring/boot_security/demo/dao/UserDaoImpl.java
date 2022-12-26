@@ -16,11 +16,9 @@ public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-//    private PasswordEncoder passwordEncoder;
 
     @Override
     public void addUser(User user) {
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         entityManager.persist(user);
     }
 
@@ -36,7 +34,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(User user) {
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         entityManager.merge(user);
     }
 
