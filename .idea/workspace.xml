@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb7fd61-26ed-4cdc-bed3-2440fc8ce0cb" name="Changes" comment="Default ROLE_USER">
+    <list default="true" id="fdb7fd61-26ed-4cdc-bed3-2440fc8ce0cb" name="Changes" comment="Password encodes in Service">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/configs/PasswordEncoderConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b87e3075-efa1-4a13-8bf2-802ce445568c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b87e3075-efa1-4a13-8bf2-802ce445568c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/configs/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kata/spring/boot_security/demo/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -156,6 +160,8 @@
       <workItem from="1671964208923" duration="7863000" />
       <workItem from="1671976776199" duration="5048000" />
       <workItem from="1672040737212" duration="337000" />
+      <workItem from="1672054488334" duration="185000" />
+      <workItem from="1672055288164" duration="2413000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;back&quot; button in DELETE fixed">
       <created>1671530091556</created>
@@ -192,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671632765335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Password encodes in Service">
+      <created>1672054664291</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672054664291</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +230,7 @@
     <MESSAGE value="Logic was transferred to Service" />
     <MESSAGE value="Fetch type LAZY" />
     <MESSAGE value="Default ROLE_USER" />
-    <option name="LAST_COMMIT_MESSAGE" value="Default ROLE_USER" />
+    <MESSAGE value="Password encodes in Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Password encodes in Service" />
   </component>
 </project>
